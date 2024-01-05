@@ -7,14 +7,17 @@
 </head>
 <body>
     <?php  
-    $a =4 ;
-    $b =10 ;
-    $c = ($b-5) * $a;
-    echo "result 1 =" .$c. "<BR>";
-    echo 'result 2 =' .$c. '<BR>';
-    echo "result 3 =  $c <BR>";
-    echo 'result 4 =  $c <BR>';
-    echo "result 5 =  $c + $b <BR>";
+    $ages = array('bob'=>20,'peter'=>35);
+
+    echo "1 - ".$ages['bob']."<BR>";
+    echo "2 - ".$ages['peter']."<BR>";
+
+    $ages['lek']= 18 ;
+    $ages['ying']= 42 ;
+
+    echo "3 - " . ($ages['lek'] + $ages['peter']) . "<BR>";
+    $ages['peter'] = $ages['bob']- $ages['lek'];
+    echo "4 - ". $ages['peter']. "<BR>";
     ?>
 </body>
 </html>
