@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1 style="text-align: center;">Web ja Board</h1>
+<h1 style="text-align: center;">Web Ja Board</h1>
     <hr>
     <div style="text-align: center;">
     <?php
@@ -16,7 +16,6 @@
     </div>
     <div style="text-align: center;">
     <?php
-    $id = ($_GET["id"]);
     $i= $id%2 ;
     if($i==1){
     echo "เป็นกระทู้หมายเลขคี่";
