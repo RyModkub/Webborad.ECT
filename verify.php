@@ -13,9 +13,16 @@
    $pw = $_POST['password'];
    ?>
    <div style="text-align: center;" > <?php  
-   echo "เข้าสู่ระบบด้วย" .'<BR>';
-   echo "Login = $id" .'<BR>';
-   echo "Password = $pw".'<BR>';
+   if($id=='admin'&&$pw=='ad1234'){
+    echo "ยินดีต้อนรับคุณ admin" .'<BR>';
+   }
+   else if($id=='member'&&$pw=='mem1234'){
+   echo "ยินดีต้อนรับคุณ member" .'<BR>';
+   }
+   else echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง".'<BR>';
    ?> </div>
+   <div style="text-align: center;"> 
+        <a href="index.php">กลับไปที่หน้าหลัก</a>
+    </div>
 </body>
 </html>

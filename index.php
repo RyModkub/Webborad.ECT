@@ -21,6 +21,11 @@
         <li><a href="post.php?id=3" target="_blank">กระทู้ที่ 3 </a></li>
         <li><a href="post.php?id=4" target="_blank">กระทู้ที่ 4 </a></li>
         <li><a href="post.php?id=5" target="_blank">กระทู้ที่ 5 </a></li>
+        <li><a href="post.php?id=6" target="_blank">กระทู้ที่ 6 </a></li>
+        <li><a href="post.php?id=7" target="_blank">กระทู้ที่ 7 </a></li>
+        <li><a href="post.php?id=8" target="_blank">กระทู้ที่ 8 </a></li>
+        <li><a href="post.php?id=9" target="_blank">กระทู้ที่ 9 </a></li>
+        <li><a href="post.php?id=510" target="_blank">กระทู้ที่ 10 </a></li>
         
       </ul>
 </body>
