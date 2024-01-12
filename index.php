@@ -25,7 +25,7 @@
         <li><a href="post.php?id=7" target="_blank">กระทู้ที่ 7 </a></li>
         <li><a href="post.php?id=8" target="_blank">กระทู้ที่ 8 </a></li>
         <li><a href="post.php?id=9" target="_blank">กระทู้ที่ 9 </a></li>
-        <li><a href="post.php?id=510" target="_blank">กระทู้ที่ 10 </a></li>
+        <li><a href="post.php?id=10" target="_blank">กระทู้ที่ 10 </a></li>
         
       </ul>
 </body>
