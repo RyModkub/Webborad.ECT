@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+<?php session_start();  ?>
 <h1 style="text-align: center;">Web Ja Board</h1>
     <hr>
     <div style="text-align: center;">

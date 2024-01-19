@@ -6,6 +6,7 @@
     <title>Login</title>
 </head>
 <body>
+    <?php session_start();  ?>
     <h1 style="text-align: center;">Web Ja Board</h1>
     <hr>
     <table style="border: 2px solid black; width: 20%;" align="center">
@@ -18,7 +19,7 @@
     </table>
     <br>
     <div style="text-align: center;">
-        ถ้ายังไม่ได้เป็นสมาชิก <a href="register.html" target="_blank">สมัครสมาชิก</a>
+        ถ้ายังไม่ได้เป็นสมาชิก <a href="register.php" target="_blank">สมัครสมาชิก</a>
 </div>
 </body>
 </html>

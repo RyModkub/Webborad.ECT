@@ -6,6 +6,7 @@
     <title>register</title>
 </head>
 <body>
+<?php session_start();  ?>
     <h1 style="text-align: center;">สมัครสมาชิก</h1>
     <hr>
     <table style="border: 2px solid black; width: 30%;" align="center">

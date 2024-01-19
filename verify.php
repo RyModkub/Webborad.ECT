@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+<?php session_start();  ?>
 <h1 style="text-align: center;">Web Ja Board</h1>
     <hr>
    <?php 
@@ -14,10 +15,16 @@
    ?>
    <div style="text-align: center;" > <?php  
    if($id=='admin'&&$pw=='ad1234'){
+    $_SESSION["username"] = $id;
+    $_SESSION["role"] = 'a';
+    $_SESSION["id"] = session_id();
     echo "ยินดีต้อนรับคุณ admin" .'<BR>';
    }
    else if($id=='member'&&$pw=='mem1234'){
    echo "ยินดีต้อนรับคุณ member" .'<BR>';
+    $_SESSION["username"] = $id;
+    $_SESSION["role"] = 'm';
+    $_SESSION["id"] = session_id();
    }
    else echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง".'<BR>';
    ?> </div>
