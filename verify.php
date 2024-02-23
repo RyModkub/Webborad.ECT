@@ -18,18 +18,21 @@
     $_SESSION["username"] = $id;
     $_SESSION["role"] = 'a';
     $_SESSION["id"] = session_id();
-    echo "ยินดีต้อนรับคุณ admin" .'<BR>';
+    header("Location : index.php");
+    die();
    }
    else if($id=='member'&&$pw=='mem1234'){
-   echo "ยินดีต้อนรับคุณ member" .'<BR>';
     $_SESSION["username"] = $id;
     $_SESSION["role"] = 'm';
     $_SESSION["id"] = session_id();
+    header("Location : index.php");
+    die();
    }
-   else echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง".'<BR>';
-   ?> </div>
-   <div style="text-align: center;"> 
-        <a href="index.php">กลับไปที่หน้าหลัก</a>
-    </div>
+   else {
+   $_SESSION["error"] = 'error';
+   header("Location: login.php");
+   die();
+   }
+   ?>
 </body>
 </html>
