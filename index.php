@@ -61,6 +61,9 @@
          $result=$conn->query($sql);
         while($row = $result->fetch()){
             echo"<tr><td>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td></tr>";
+            if(isset($_SESSION['id'])&& $_SESSION['role'] == 'a'){
+                echo"<td class ='col-1'><a href='delete.php?id=$row[2] class='btn btn-danger'></a></td>";
+            }
         }
         $conn=null;
         ?> 
