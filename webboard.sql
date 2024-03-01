@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2024 at 05:41 AM
+-- Generation Time: Mar 01, 2024 at 05:21 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -31,6 +31,15 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`) VALUES
+(1, 'เรื่องทั่วไป'),
+(2, 'เรื่องเรียน'),
+(3, 'เรื่องกีฬา');
 
 -- --------------------------------------------------------
 
@@ -61,6 +70,16 @@ CREATE TABLE `post` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`id`, `title`, `content`, `post_date`, `cat_id`, `user_id`) VALUES
+(1, 'ใครน่ารักขอให้ยกมือขึ้น', 'ใครน่ารักขอให้ยกมือขึ้น 0/ 0/ 0/ 0/', '2024-03-01 11:03:56', 1, 7),
+(2, 'ใครน่ารักขอให้ยกมือขึ้น', 'ใครน่ารักขอให้ยกมือขึ้น 0/ 0/ 0/ 0/', '2024-03-01 11:04:34', 1, 7),
+(3, 'คณิตศาสน์', '1+1=0', '2024-03-01 11:19:43', 2, 7),
+(4, 'ลิเวอพูได้แชม', 'แมนยู 7-0 ยิงได้ !โดนยิง', '2024-03-01 11:20:48', 3, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +95,16 @@ CREATE TABLE `user` (
   `email` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `role` char(1) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `password`, `name`, `gender`, `email`, `role`) VALUES
+(3, 'm1', 'c9198296f907c066bd972d59eace9af1402a4eea', 'msm1', 'M', 'msm@mail.com', 'm'),
+(5, 'm2', 'c9198296f907c066bd972d59eace9af1402a4eea', 'm2', 'M', 'msm2@mail.com', 'm'),
+(6, 'm3', 'c9198296f907c066bd972d59eace9af1402a4eea', 'mm', 'M', 'msm3@mail.com', 'm'),
+(7, 'a', '895b317c76b8e504c2fb32dbb4420178f60ce321', 'aa', 'M', 'a@mail.com', 'm');
 
 --
 -- Indexes for dumped tables
@@ -113,7 +142,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `comment`
@@ -125,13 +154,13 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
