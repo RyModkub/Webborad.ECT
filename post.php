@@ -32,8 +32,8 @@ if(!isset($_SESSION['id'])) {
     <div class="row mt-4">
     <div class="col-lg-3 col-md-2 col-sm-1"></div> 
         <div class="col-lg-6 col-md-8 col-sm-10"> 
-            <div class="card border-success mt-3">      
-                <div class="card-header bg-success text-white"><?php echo "$_SESSION[title]"; ?></div>            
+            <div class="card border-primary mt-3">      
+                <div class="card-header bg-primary text-white"><?php echo "$_SESSION[title]"; ?></div>            
                 <div class="card-body"> 
     <?php  echo "$_SESSION[content]<br>$data[login]:$data[post_date]";
     $conn=null;
