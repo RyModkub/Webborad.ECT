@@ -18,7 +18,8 @@ if(!isset($_SESSION['id'])) {
 <h1 style="text-align: center;" class="mt-3">Web Ja Board</h1>
     <?php include"nav.php"; 
     $conn=new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
-    $sql="SELECT * FROM post WHERE id= $_GET[id]";
+    $sql="SELECT post.title,post.content,post.post_date,user.login FROM post  
+    INNER JOIN user ON (post.user_id=user.id ) WHERE post.id=$_GET[id] ";
     $result=$conn->query($sql);
     if($result->rowCount()==1){
     $data=$result->fetch(PDO::FETCH_ASSOC);
@@ -32,15 +33,16 @@ if(!isset($_SESSION['id'])) {
     <div class="col-lg-3 col-md-2 col-sm-1"></div> 
         <div class="col-lg-6 col-md-8 col-sm-10"> 
             <div class="card border-success mt-3">      
-                <div class="card-header bg-success text-white"><?php echo $_SESSION['title']; ?></div>            
+                <div class="card-header bg-success text-white"><?php echo "$_SESSION[title]"; ?></div>            
                 <div class="card-body"> 
-    <?php  echo $_SESSION['content'];
+    <?php  echo "$_SESSION[content]<br>$data[login]:$data[post_date]";
     $conn=null;
     $conn=new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
-    $sql="SELECT * FROM comment WHERE post_id= $_GET[id]";
+    $sql="SELECT * FROM comment INNER JOIN user ON (comment.user_id=user.id ) WHERE post_id= $_GET[id]";
     $result=$conn->query($sql);
+    $i=1;
          while($row = $result->fetch()){
-            $i=1;
+            
         ?> 
                 </div>
             </div>
@@ -54,7 +56,7 @@ if(!isset($_SESSION['id'])) {
             <div class="card border-info mt-3">      
                 <div class="card-header bg-info text-white"><?php echo "ความคิดเห็นที่ $i"; ?></div>            
                 <div class="card-body"> 
-    <?php  echo $row[1];
+    <?php  echo "$row[content]<br>$row[login]:$row[post_date]";
     $i++;     }
     $conn=null;
         ?> 

@@ -51,7 +51,8 @@
         <?php if(isset($_SESSION['id'])) {?>
         <div >  <a href="newpost.php" class="btn btn-success btn-sm "><i class="bi bi-plus"></i> สร้างกระทู้ใหม่</a> </div>
         <?php }?>
-    </div>      
+    </div>
+         
     <table class="table table-striped mt-4">
     <?php 
          $conn=new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
@@ -60,14 +61,17 @@
          INNER JOIN category as t3 ON (T1.cat_id=t3.id) ORDER BY t1.post_date DESC";
          $result=$conn->query($sql);
         while($row = $result->fetch()){
-            echo"<tr><td>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td></tr>";
+
             if(isset($_SESSION['id'])&& $_SESSION['role'] == 'a'){
-                echo"<td class ='col-1'><a href='delete.php?id=$row[2] class='btn btn-danger'></a></td>";
+                echo"<tr><td>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td></tr> ";
+                echo "<td><form action=post_save.php method=post><button type=summit class=btn btn-danger m-1>ลบ</button></form></td>";
             }
+            else echo"<tr><td>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td></tr>";
         }
         $conn=null;
         ?> 
-    </table> 
+    </table>
+    
 </div>
 </body>
 </html>
