@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-<?php session_start();  
-if(!isset($_SESSION['id'])) {
-    header("Location:index.php");
-    die();
-}
+<?php session_start();
 ?>
 <h1 style="text-align: center;" class="mt-3">Web Ja Board</h1>
     <?php include"nav.php"; 
@@ -59,12 +55,14 @@ if(!isset($_SESSION['id'])) {
     <?php  echo "$row[content]<br>$row[login]:$row[post_date]";
     $i++;     }
     $conn=null;
+     if(isset($_SESSION['id'])) {    
         ?> 
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <div class="container_lg"> 
     <div class="row mt-4">
         
@@ -96,7 +94,7 @@ if(!isset($_SESSION['id'])) {
 
     </div>
 </div>
-    
+<?php  }  ?>
 
    
 </body>

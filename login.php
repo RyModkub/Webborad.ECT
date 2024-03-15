@@ -39,7 +39,15 @@
                     </div>
                     <div class="form-group mt-2">
                         <label for="pass" class="form-label">Password:</label>
-                        <input type="password" id="pass" class="form-control"name="password" placeholder="Password" required>
+                        <div class="input-group">
+                            <input type="password" id="pass" class="form-control"name="pass" placeholder="Password" required>
+                        <div class = ""input-group-append>
+                        <span class="input-group-text" onclick="password_show_hide();">
+                            <i class="bi bi-eye-fill" id="show_eye"></i>
+                            <i class="bi bi-eye-slash-fill d-none" id="hide_eye"></i>
+                        </span>
+                    </div>
+                    </div>
                     </div>
                     <div class="d-flex justify-content-center mt-3">
                     <button type="submit" class="btn btn-secondary m-1">Login</button> 
@@ -56,4 +64,22 @@
     </div>
 </div>
 </body>
+<script>
+    function password_show_hide(){
+        var x = document.getElementById("pass");
+        var show_eye = document.getElementById("show_eye");
+        var hide_eye = document.getElementById("hide_eye");
+        hide_eye.classList.remove("d-none");
+        if(x.type=="password"){
+            x.type = "text";
+            show_eye.style.display ="none";
+            hide_eye.style.display ="block";
+        }
+        else{
+            x.type = "password";
+            show_eye.style.display ="block";
+            hide_eye.style.display ="none";
+        }
+    }
+</script>
 </html>

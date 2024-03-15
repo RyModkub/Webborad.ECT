@@ -23,6 +23,9 @@
                         if($_SESSION['add_login']=="error"){
                             echo"<div class='alert alert-danger'>ชื่อบัญชีซ้ำหรือฐานข้อมูลมีปัญหา</div>";
                         }
+                        elseif($_SESSION['add_login']=="error2"){
+                            echo"<div class='alert alert-danger'>มึงมันโง่ใส่รหัสผ่านซ้ำ</div>";
+                        }
                         else{
                             echo"<div class='alert alert-success'>เพิ่มบัญชีเรียบร้อยแล้ว</div>";
                         }
@@ -42,7 +45,13 @@
                     <div class="row mt-3">
                         <label for="pass" class="col-form-label col-lg-3">รหัสผ่าน:</label>
                         <div class="col-lg-9">
-                        <input type="password"  class="form-control"name="pass" placeholder="Password" required>
+                        <input type="password" id="pass1" class="form-control"name="pass1" placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                        <label for="pass2" class="col-form-label col-lg-3">ใส่รหัสผ่านซ้ำ:</label>
+                        <div class="col-lg-9">
+                        <input type="password" id="pass2" class="form-control"name="pass2"  placeholder="Repeat-Password" required>
                     </div>
                 </div>
                     <div class="row mt-3">
@@ -76,7 +85,7 @@
                     </div>
                     <div class="row mt-3">
                     <div class="d-flex justify-content-center mt-3 co-lg-12">
-                    <button type="submit" class="btn btn-primary btn-sm me-2"><i class="bi bi-save"></i>สมัครสมาชิก</button> 
+                    <button type="submit" class="btn btn-primary btn-sm me-2" onclick="pass()"><i class="bi bi-save"></i>สมัครสมาชิก</button> 
                     <button type="rester" class="btn btn-danger btn-sm"><i class="bi bi-x-square"></i>ยกเลิก</button>
                      </div>   
                 </div>
@@ -91,4 +100,13 @@
 </div>
 </div>
 </body>
+<script>//Onclick
+        function pass(){
+            var p1 = document.getElementById('pass1').value;
+            var p2 = document.getElementById('pass2').value;
+            if(p1!=p2){         
+                alert('รหัสผ่านทั้งสองช่องไม่ตรงกัน');
+            }
+        }
+    </script>
 </html>
