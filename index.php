@@ -20,7 +20,7 @@
                     <a class="navbar-brand" href="index.php"><i class="bi bi-house-door-fill"></i> Home</a>
                     <form class="d-flex"><?php if(!isset($_SESSION['id'])) { ?>                     
                         <a href="login.php" class="navbar-brand"><i class="bi bi-box-arrow-in-left"></i> เข้าสู่ระบบ</a>
-                            <?php } if ($_SESSION["role"] == 'm'&& isset($_SESSION['id'])) { ?>
+                            <?php }else{ if ($_SESSION["role"] == 'm'&& isset($_SESSION['id'])) { ?>
                                 <nav class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo "<i class='bi bi-people-fill'></i> $_SESSION[username]" ?></a>
                                 <ul class="dropdown-menu">
@@ -37,7 +37,7 @@
                                 </ul>
                             </nav>
                             
-                                <?php }?>
+                                <?php }}?>
                     </form>
                 </div>
             </nav>
@@ -69,27 +69,28 @@
     <?php       
          $conn=new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
          if(isset($_GET["cat"])){
-         $sql="SELECT t3.name,t1.title,t1.id,t2.login,t1.post_date FROM post as t1 
-         INNER JOIN user as t2 ON (T1.user_id=t2.id) 
-         INNER JOIN category as t3 ON (T1.cat_id=t3.id)WHERE t3.id=$_GET[cat] ORDER BY t1.post_date DESC";
+         $sql="SELECT t3.name,t1.title,t1.id,t2.login,t1.post_date,t1.user_id FROM post as t1 
+         INNER JOIN user as t2 ON (t1.user_id=t2.id) 
+         INNER JOIN category as t3 ON (t1.cat_id=t3.id)WHERE t3.id=$_GET[cat] ORDER BY t1.post_date DESC";
          }
          else{
-            $sql="SELECT t3.name,t1.title,t1.id,t2.login,t1.post_date FROM post as t1 
-         INNER JOIN user as t2 ON (T1.user_id=t2.id) 
-         INNER JOIN category as t3 ON (T1.cat_id=t3.id)  ORDER BY t1.post_date DESC";
+            $sql="SELECT t3.name,t1.title,t1.id,t2.login,t1.post_date,t1.user_id FROM post as t1 
+         INNER JOIN user as t2 ON (t1.user_id=t2.id) 
+         INNER JOIN category as t3 ON (t1.cat_id=t3.id)  ORDER BY t1.post_date DESC";
          }
          $result=$conn->query($sql);
         while($row = $result->fetch()){
-         
-            if(isset($_SESSION['id'])&& $_SESSION['user_id'] == 'T1.user_id'&& $_SESSION['role'] == 'm'){
+            if(isset($_SESSION['id'])&& $_SESSION['role'] == 'm'){
                 echo"<tr><td class=col-11>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td> ";
+                if($_SESSION['user_id']== $row[5]){
                 echo "<td class=col-1><a href='editpost.php?edit=$row[2]' name='edit'  class='btn btn-warning'>แก้ไข</a></td>";
-                echo "<td class=col-1><a href='delete.php?del=$row[2]' name='del' onclick='return myConfirm()' class='btn btn-danger'>ลบ</a></td></tr>";    
+                echo "<td class=col-1><a href='delete.php?del=$row[2]' name='del' onclick='return myConfirm()' class='btn btn-danger bi bi-trash'></a></td></tr>"; }
             }
             if(isset($_SESSION['id'])&& $_SESSION['role'] == 'a'){
                 echo"<tr><td class=col-11>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td> ";
-                echo "<td class=col-1><a href='editpost.php?edit=$row[2]' name='edit'  class='btn btn-warning'>แก้ไข</a></td>";
-                echo "<td class=col-1><a href='delete.php?del=$row[2]' name='del' onclick='return myConfirm()' class='btn btn-danger'>ลบ</a></td></tr>";
+                if($_SESSION['user_id']==$row[5]){
+                echo "<td class=col-1><a href='editpost.php?edit=$row[2]' name='edit'  class='btn btn-warning'>แก้ไข</a></td>";}
+                echo "<td class=col-1><a href='delete.php?del=$row[2]' name='del' onclick='return myConfirm()' class='btn btn-danger bi bi-trash'></a></td></tr>";
             }
             else echo"<tr><td>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td></tr>";
         }
