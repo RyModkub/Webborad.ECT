@@ -27,7 +27,7 @@
                                     <li><a class="dropdown-item" href="logout.php">ออกจากระบบ</a></li>
                                 </ul>
                             </nav>
-                            <?php  }elseif($_SESSION["role"] == 'a'&& isset($_SESSION['id'])) { ?>
+                            <?php  }if($_SESSION["role"] == 'a'&& isset($_SESSION['id'])) { ?>
                                 <nav class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo "<i class='bi bi-people-fill'></i> $_SESSION[username]" ?></a>
                                 <ul class="dropdown-menu">
@@ -83,14 +83,14 @@
             if(isset($_SESSION['id'])&& $_SESSION['role'] == 'm'){
                 echo"<tr><td class=col-11>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td> ";
                 if($_SESSION['user_id']== $row[5]){
-                echo "<td class=col-1><a href='editpost.php?edit=$row[2]' name='edit'  class='btn btn-warning'>แก้ไข</a></td>";
-                echo "<td class=col-1><a href='delete.php?del=$row[2]' name='del' onclick='return myConfirm()' class='btn btn-danger bi bi-trash'></a></td></tr>"; }
+                echo "<td class=col-1><a href='editpost.php?edit=$row[2]&user=$row[5]' name='edit'  class='btn btn-warning bi bi-pencil-fill'>แก้ไข</a></td>";
+                echo "<td class=col-1><a href='delete.php?del=$row[2]&user=$row[5]' name='del' onclick='return myConfirm()' class='btn btn-danger bi bi-trash'></a></td></tr>"; }
             }
             if(isset($_SESSION['id'])&& $_SESSION['role'] == 'a'){
                 echo"<tr><td class=col-11>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td> ";
                 if($_SESSION['user_id']==$row[5]){
-                echo "<td class=col-1><a href='editpost.php?edit=$row[2]' name='edit'  class='btn btn-warning'>แก้ไข</a></td>";}
-                echo "<td class=col-1><a href='delete.php?del=$row[2]' name='del' onclick='return myConfirm()' class='btn btn-danger bi bi-trash'></a></td></tr>";
+                echo "<td class=col-1><a href='editpost.php?edit=$row[2]&user=$row[5]' name='edit'  class='btn btn-warning bi bi-pencil-fill'>แก้ไข</a></td>";}
+                echo "<td class=col-1><a href='delete.php?del=$row[2]&user=$row[5]' name='del' onclick='return myConfirm()' class='btn btn-danger bi bi-trash'></a></td></tr>";
             }
             else echo"<tr><td>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td></tr>";
         }
