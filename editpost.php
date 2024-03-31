@@ -28,6 +28,7 @@
     $sql="SELECT post.cat_id,category.name,post.title,post.content FROM post  
     INNER JOIN user ON (post.user_id=user.id ) 
     INNER JOIN category ON (post.cat_id=category.id ) WHERE post.id=$_GET[edit] ";  
+    unset($_SESSION['post']);
     $_SESSION["post"] = $_GET['edit'];
     ?>
     <div class="row mt-4">

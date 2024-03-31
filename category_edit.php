@@ -19,6 +19,7 @@
     include "nav.php";
     $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
     $sql="SELECT * FROM category where id=$_GET[edit]";
+    unset($_SESSION['catid']);
     $_SESSION["catid"] = $_GET['edit'];
     ?>
     <div class="row mt-4">
