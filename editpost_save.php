@@ -9,8 +9,5 @@
     $conn=null;       
     $_SESSION['edit']="success";
     header("Location:editpost.php?edit=$id&&user=$_SESSION[user_id]");
-    die();       
-    
-    
-        
+    die();                   
 ?>

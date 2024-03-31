@@ -28,7 +28,7 @@
     $sql="SELECT post.cat_id,category.name,post.title,post.content FROM post  
     INNER JOIN user ON (post.user_id=user.id ) 
     INNER JOIN category ON (post.cat_id=category.id ) WHERE post.id=$_GET[edit] ";  
-    $_SESSION["post"] = $_GET['edit'];;
+    $_SESSION["post"] = $_GET['edit'];
     ?>
     <div class="row mt-4">
     <div class="col-lg-3 col-md-2 col-sm-1 "></div>
@@ -42,7 +42,7 @@
                     }
                     ?>
             <div class="card border-warning">
-            <div class="card-header bg-warning text-white">ตั้งกระทู้ใหม่</div>
+            <div class="card-header bg-warning text-white">แก้ไขกระทู้</div>
             <div class="card-body">
                 <form action="editpost_save.php" method="post">
                     <div class="row">
@@ -82,8 +82,9 @@
                         <div class="col-lg-9 d-flex justify-content-center">
                             <button type="submit" class="btn btn-warning btn-sm text-white me-2">
                                 <i class="bi bi-caret-right-square "></i>บันทึกข้อความ</button>                               
-                            </div>
+                            </div>                       
                  </div>
+                 </form>
             </div>
         </div>   
     </div>
