@@ -11,6 +11,7 @@
 <body>
 <?php session_start();
 ?>
+<div class="container-lg">
 <h1 style="text-align: center;" class="mt-3">Web Ja Board</h1>
     <?php include"nav.php"; 
     $conn=new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
@@ -22,9 +23,7 @@
     $_SESSION["title"] = $data['title'];
     $_SESSION["content"] = $data['content'];
     }
-    ?>
-         
-    <div class="container_lg">
+    ?>        
     <div class="row mt-4">
     <div class="col-lg-3 col-md-2 col-sm-1"></div> 
         <div class="col-lg-6 col-md-8 col-sm-10"> 
@@ -45,7 +44,7 @@
         </div>
     </div>
 </div>
-<div class="container_lg">
+<div class="container-lg">
     <div class="row mt-4">
     <div class="col-lg-3 col-md-2 col-sm-1"></div> 
         <div class="col-lg-6 col-md-8 col-sm-10"> 
@@ -63,7 +62,7 @@
     </div>
 </div>
 
-<div class="container_lg"> 
+<div class="container-lg"> 
     <div class="row mt-4">
         
         <div class="col-lg-3 col-md-2 col-sm-1"></div>
