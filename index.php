@@ -89,11 +89,14 @@
                 echo "<td class=col-1><a href='delete.php?del=$row[2]&user=$row[5]' name='del' onclick='return myConfirm()' class='btn btn-danger bi bi-trash'></a></td></tr>"; }
             }
             elseif(isset($_SESSION['id'])&& $_SESSION['role'] == 'a'){
-                echo"<tr><td class=col-10>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td><td class=col-1></td><td class=col-1></td></tr>";
-                if($_SESSION['user_id']==$row[5]){
-                echo "<tr><td class=col-10>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td><td class=col-1><a href='editpost.php?edit=$row[2]&user=$row[5]' name='edit'  class='btn btn-warning bi bi-pencil-fill'>แก้ไข</a></td>";}
-                echo "<td class=col-1><a href='delete.php?del=$row[2]&user=$row[5]' name='del' onclick='return myConfirm()' class='btn btn-danger bi bi-trash'></a></td></tr>";
+                if($_SESSION['user_id']!=$row[5]){
+                echo"<tr><td class=col-10>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td><td class=col-1></td><td class=col-1><a href='delete.php?del=$row[2]&user=$row[5]' name='del' onclick='return myConfirm()' class='btn btn-danger bi bi-trash'></a></td></tr>";
+                }
+                else{
+                echo "<tr><td class=col-10>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td><td class=col-1><a href='editpost.php?edit=$row[2]&user=$row[5]' name='edit'  class='btn btn-warning bi bi-pencil-fill'>แก้ไข</a></td>
+                <td class=col-1><a href='delete.php?del=$row[2]&user=$row[5]' name='del' onclick='return myConfirm()' class='btn btn-danger bi bi-trash'></a></td></tr>";
             }
+        }
             else echo"<tr><td>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td></tr>";
         }
         $conn=null;

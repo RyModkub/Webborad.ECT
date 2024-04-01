@@ -65,7 +65,7 @@
       </div>
       <div class="modal-body">
       <form action="category_new.php" method="post">
-      <div class="row mt-3">
+      <div class=" mt-1">
                 <label for="name" class="col-lg-3 col-form-label">ชื่อหมวดหมู่ใหม่</label>                                                                         
                         <input type="text" name="name" id="name" class="form-control" require>                                                                                             
       
